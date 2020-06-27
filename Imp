@@ -1,0 +1,36 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+template <class T>
+class MaxHeap
+{
+	int size = 0;
+	vector<T> element;
+public:
+	T pop(){
+		size--;
+		return element.pop_back();
+	}
+	void push(T ele) {
+		size++;
+		 element.push_back(ele);
+	}
+	void print() {
+		for (int i = 0; i < sizeof(element); i++)
+			cout << element[i];
+	}
+};
+int main()
+{
+	MaxHeap<int>* myMaxHeap = new MaxHeap<int>();
+	myMaxHeap->push(5);
+	myMaxHeap->push(9);
+	myMaxHeap->push(1);
+	myMaxHeap->push(8);
+	myMaxHeap->push(2);
+	myMaxHeap->print();
+	cout << "First Pop: " << myMaxHeap->pop() << endl;
+	cout << "Second Pop: " << myMaxHeap->pop() << endl;
+	myMaxHeap->print();
+
+}
